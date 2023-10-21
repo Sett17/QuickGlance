@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - '*'
+  workflow_dispatch:
 
 jobs:
   build-android:
@@ -18,10 +19,8 @@ jobs:
         distribution: 'adopt'
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
-      working-directory: Android
     - name: Build and Sign APK
       run: ./gradlew assembleRelease
-      working-directory: Android
     - name: Rename APK
       run: mv app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/QuickGlance.apk
     - name: Upload APK as artifact
