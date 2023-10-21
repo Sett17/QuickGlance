@@ -27,8 +27,6 @@ fun stringWidth(str: String, fontSize: Float): Float {
 }
 
 fun maxFontSizeForWidth(word: ProcessedWord, maxWidthPx: Float, epsilon: Float = .91f, context: Context): Float {
-    // we need a fontSize that will make beginning (the longer part) + center fit into half the maxWidth
-
     val part = word.word.substring(0, word.highlightPosition + 1)
 
     var lowerBound = 0f
